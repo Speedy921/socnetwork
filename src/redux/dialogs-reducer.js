@@ -14,7 +14,7 @@ let initialState = {
     { id: 1, message: "Hi" },
     { id: 2, message: "Zopa" },
     { id: 3, message: "Popa" },
-    { id: 4, message: "Шо делаешь голова" },
+    { id: 4, message: "wkenfwkjnefksjk" },
     { id: 5, message: "лол" },
     { id: 6, message: "кек" },
   ],
