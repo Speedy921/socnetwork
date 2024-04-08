@@ -16,12 +16,19 @@ export const usersAPI = {
         return response.data;
       });
   },
+  follow(userId) {
+    return instance.post(`follow/${userId}`);
+  },
+  unfollow(userId) {
+    return instance.delete(`follow/${userId}`);
+  },
+  getProfile(userId) {
+    return instance.get(`profile/` + userId);
+  },
 };
 
-export const getUsers2 = (currentPage = 1, pageSize = 10) => {
-  return instance
-    .get(`?page=${currentPage}&count=${pageSize}`)
-    .then((response) => {
-      return response.data;
-    });
+export const authAPI = {
+  me() {
+    return instance.get(`auth/me`);
+  },
 };
