@@ -2,8 +2,6 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
   let pageCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -37,6 +35,7 @@ let Users = (props) => {
               <img
                 src={u.photos.small != null ? u.photos.small : userPhoto}
                 className={s.userPhoto}
+                alt=""
               />
             </NavLink>
           </span>
