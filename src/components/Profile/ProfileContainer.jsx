@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "./Profile";
 import {
   getUserProfile,
@@ -36,6 +36,13 @@ function withRouter(Component) {
     let location = useLocation();
     let navigate = useNavigate();
     let params = useParams();
+
+    useEffect(() => {
+      if (!props.isAuth) {
+        navigate("/login");
+      }
+    }, [props.isAuth, navigate]);
+
     return <Component {...props} router={{ location, navigate, params }} />;
   }
 
