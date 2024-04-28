@@ -12,12 +12,12 @@ import Preloader from "../common/Preloader/Preloader";
 import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
 import { compose } from "redux";
 import {
-  getUsers,
   getPageSize,
   gettotalUserCount,
   getcurrentPage,
   getisFetching,
   getfollowingInProgress,
+  getUsers,
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
