@@ -22,7 +22,7 @@ const LoginForm = ({ handleSubmit, error }) => {
         { type: "checkbox" },
         "rememberMe"
       )}
-      <div className={style.formSummaryError}>{error}</div>
+      {error && <div className={style.formSummaryError}>{error}</div>}
       <div>
         <button>Login</button>
       </div>
