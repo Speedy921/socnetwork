@@ -7,17 +7,51 @@ const SET_STATUS = "SET_STATUS";
 const DELETE_POST = "DELETE_POST";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
+type PostDataType = {
+  id: number;
+  message: string;
+  likesCount: number;
+}
+
+type ProfileType = {
+  userId: number;
+  lookingForAJob: boolean
+  lookingForAJobDescription: string 
+  fullName: string
+  contacts: ContactsType
+  photos: PhotosType
+}
+
+type PhotosType = {
+  small: string | null
+  large: string | null
+}
+
+type ContactsType = {
+  facebook: string
+  website: null
+  vk: string
+  twitter: string
+  instagram: string
+  youtube: string
+  github: string
+  mainLink: null
+}
+
 let initialState = {
   postsData: [
     { id: 1, message: "Hi, how are you?", likesCount: 12 },
     { id: 2, message: "Its my first post", likesCount: 11 },
     { id: 3, message: "Чому не державною", likesCount: 1488 },
-  ],
-  profile: null,
+  ] as Array<PostDataType>,
+  profile: null as ProfileType | null, 
   status: "",
+  newPostText: ''
 };
 
-const profileReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const profileReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_POST: {
       let newPost = {
@@ -57,6 +91,12 @@ const profileReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+type addPostActionCreatorType ={
+  type: typeof ADD_POST
+  newPostText: string
+  
+}
 
 export const getUserProfile = (userId) => async (dispatch) => {
   let response = await usersAPI.getProfile(userId);
